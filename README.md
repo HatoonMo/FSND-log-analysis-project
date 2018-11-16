@@ -7,9 +7,12 @@ this is the first project in Udacity's Connect Full Stack Web Developer
  The program will run from the command line and connect to the database.
  
 Questions to be answerd:
+```
     (1) What are the most popular three articles of all time?
     (2) Who are the most popular article authors of all time?
     (3) On which days did more than 1% of requests lead to errors?
+ ``` 
+    
 see OUTPUT.txt file for the results
 
 
@@ -25,16 +28,15 @@ a.zip
 
 **Starting virtual machine:**
 - from terminal line cd to project folder you set up above.
-> cd vagrant
-> vagrant up
-> vagrant ssh
->  cd /vagrant
-> cd log-analysis-project
-- load database with this command : 
-> psql -d news -f newsdata.sql
-- connect to database 
->psql -d news
-
+```
+cd vagrant
+vagrant up
+vagrant ssh
+cd /vagrant
+cd log-analysis-project
+load database with this command : psql -d news -f newsdata.sql
+- connect to d
+```
 
 
 ### to Run the Project
