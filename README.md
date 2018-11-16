@@ -43,7 +43,7 @@ a.zip
  > python3 log-analysis-project.py
 
 #### Output 
-'''
+```
 MOST POPULAR THREE ARTICLES OF ALL TIME:
 (1) Candidate is jerk, alleges rival -- 338647 views
 (2) Bears love berries, alleges bear -- 253801 views
@@ -56,4 +56,4 @@ MOST POPULAR THREE AUTHORS OF ALL TIME:
 
  DAYS WITH MORE THAN ONE PERCENT ERROR REQUESTS:
 (1) 2016-07-17 -- 2.26% errors
-'''
+```
