@@ -1,9 +1,13 @@
+#! /usr/bin/env python3
 import psycopg2
 DBNAME = "news"
 
 
 def main():
-    db = psycopg2.connect(database=DBNAME)  # connect to database
+    try:
+        db = psycopg2.connect(database=DBNAME)  # connect to database
+    except (psycopg2.DatabaseError, e):
+        print("<error message>")
     # open cursor
     c = db.cursor()
     # Queries
