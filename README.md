@@ -25,7 +25,7 @@ a.zip
 
 **Starting virtual machine:**
 - from terminal line cd to project folder you set up above.
->cd vagrant
+> cd vagrant
 > vagrant up
 > vagrant ssh
 >  cd /vagrant
@@ -43,16 +43,17 @@ a.zip
  > python3 log-analysis-project.py
 
 #### Output 
-> MOST POPULAR THREE ARTICLES OF ALL TIME:
-> (1) Candidate is jerk, alleges rival -- 338647 views
-> (2) Bears love berries, alleges bear -- 253801 views
-> (3) Bad things gone, say good people -- 170098 views
+'''
+MOST POPULAR THREE ARTICLES OF ALL TIME:
+(1) Candidate is jerk, alleges rival -- 338647 views
+(2) Bears love berries, alleges bear -- 253801 views
+(3) Bad things gone, say good people -- 170098 views
 
-> MOST POPULAR THREE AUTHORS OF ALL TIME:
-> (1) Ursula La Multa -- 507594 views
-> (2) Rudolf von Treppenwitz -- 423457 views
-> (3) Anonymous Contributor -- 170098 views
+MOST POPULAR THREE AUTHORS OF ALL TIME:
+(1) Ursula La Multa -- 507594 views
+(2) Rudolf von Treppenwitz -- 423457 views
+(3) Anonymous Contributor -- 170098 views
 
-> DAYS WITH MORE THAN ONE PERCENT ERROR REQUESTS:
-> (1) 2016-07-17 -- 2.26% errors
-
+ DAYS WITH MORE THAN ONE PERCENT ERROR REQUESTS:
+(1) 2016-07-17 -- 2.26% errors
+'''
