@@ -7,9 +7,12 @@ this is the first project in Udacity's Connect Full Stack Web Developer
  The program will run from the command line and connect to the database.
  
 Questions to be answerd:
+```
     (1) What are the most popular three articles of all time?
     (2) Who are the most popular article authors of all time?
     (3) On which days did more than 1% of requests lead to errors?
+ ``` 
+    
 see OUTPUT.txt file for the results
 
 
@@ -25,34 +28,59 @@ a.zip
 
 **Starting virtual machine:**
 - from terminal line cd to project folder you set up above.
->cd vagrant
-> vagrant up
-> vagrant ssh
->  cd /vagrant
-> cd log-analysis-project
-- load database with this command : 
-> psql -d news -f newsdata.sql
-- connect to database 
->psql -d news
-
+```
+cd vagrant
+vagrant up
+vagrant ssh
+cd /vagrant
+cd log-analysis-project
+load database with this command : psql -d news -f newsdata.sql
+- connect to d
+```
 
 
 ### to Run the Project
  - cd to project folder log-analysis-project
  - run this command
  > python3 log-analysis-project.py
+ 
+ ## Views 
+ i only used views for third question
+```
+CREATE view count_view AS
+SELECT date(time) ,COUNT(*) 
+FROM log 
+GROUP BY date(time) 
+ORDER BY date(time);
+```
+```
+CREATE view err_view AS 
+SELECT date(log.time) AS date, COUNT(log.status) AS errors 
+FROM log 
+WHERE status='404 NOT FOUND'
+GROUP BY date(time) 
+ORDER BY date(time);
 
+```
+```
+CREATE view err_rate AS 
+SELECT count_view.date , (100.00*err_view.errors/count_view.count) AS percent 
+FROM count_view,err_view 
+WHERE count_view.date = err_view.date 
+ORDER BY count_view.date;
+```
 #### Output 
-> MOST POPULAR THREE ARTICLES OF ALL TIME:
-> (1) Candidate is jerk, alleges rival -- 338647 views
-> (2) Bears love berries, alleges bear -- 253801 views
-> (3) Bad things gone, say good people -- 170098 views
+```
+MOST POPULAR THREE ARTICLES OF ALL TIME:
+(1) Candidate is jerk, alleges rival -- 338647 views
+(2) Bears love berries, alleges bear -- 253801 views
+(3) Bad things gone, say good people -- 170098 views
 
-> MOST POPULAR THREE AUTHORS OF ALL TIME:
-> (1) Ursula La Multa -- 507594 views
-> (2) Rudolf von Treppenwitz -- 423457 views
-> (3) Anonymous Contributor -- 170098 views
+MOST POPULAR THREE AUTHORS OF ALL TIME:
+(1) Ursula La Multa -- 507594 views
+(2) Rudolf von Treppenwitz -- 423457 views
+(3) Anonymous Contributor -- 170098 views
 
-> DAYS WITH MORE THAN ONE PERCENT ERROR REQUESTS:
-> (1) 2016-07-17 -- 2.26% errors
-
+ DAYS WITH MORE THAN ONE PERCENT ERROR REQUESTS:
+(1) 2016-07-17 -- 2.26% errors
+```
