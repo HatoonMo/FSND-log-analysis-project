@@ -43,7 +43,32 @@ load database with this command : psql -d news -f newsdata.sql
  - cd to project folder log-analysis-project
  - run this command
  > python3 log-analysis-project.py
+ 
+ ## Views 
+ i only used views for third question
+```
+CREATE view count_view AS
+SELECT date(time) ,COUNT(*) 
+FROM log 
+GROUP BY date(time) 
+ORDER BY date(time);
+```
+```
+CREATE view err_view AS 
+SELECT date(log.time) AS date, COUNT(log.status) AS errors 
+FROM log 
+WHERE status='404 NOT FOUND'
+GROUP BY date(time) 
+ORDER BY date(time);
 
+```
+```
+CREATE view err_rate AS 
+SELECT count_view.date , (100.00*err_view.errors/count_view.count) AS percent 
+FROM count_view,err_view 
+WHERE count_view.date = err_view.date 
+ORDER BY count_view.date;
+```
 #### Output 
 ```
 MOST POPULAR THREE ARTICLES OF ALL TIME:
